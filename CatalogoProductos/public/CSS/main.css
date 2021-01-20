@@ -1,0 +1,27 @@
+.nav-wrapper{
+    background-color: black;
+    color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.nav-wrapper ul li a:hover{
+    background-color: white !important;
+    color: black !important;
+}
+
+.card-image img{
+    width: 275.483px;
+    height: 417.533px;
+    box-shadow: 4px 4px 4px;
+}
+
+.card-title{
+    font-weight: bold !important;
+    
+}
+
+#imgold{
+    width: 200px !important;
+    height: 200px !important;
+}
