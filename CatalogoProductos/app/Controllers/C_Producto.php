@@ -88,7 +88,7 @@ class C_Producto extends Controller{
     public function Borrar($i, $img){
         $modelo = new M_Producto();
         $data['producto'] = $modelo->where('id', $i)->delete();
-        /* unlink(FCPATH.'./public/Imagenes/'.$img); */
-         return redirect()->to(base_url('productos/listar')); 
+        unlink(FCPATH.'./public/Imagenes/'.$img); 
+        return redirect()->to(base_url('productos/listar')); 
     }
 }
