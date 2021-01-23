@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use App\Models\M_Producto;
+use App\Models\M_Categoria;
 use CodeIgniter\controller;
 
 class C_Producto extends Controller{
@@ -16,8 +17,10 @@ class C_Producto extends Controller{
     //CREAR PRODUCTOS
     //vista de crear
     public function VistaCrear(){
+        $modeloC = new M_Categoria();
+        $dataC['categoria'] = $modeloC->getCategoria();
         echo view('templates/header');
-        echo view('Productos/insertar');
+        echo view('Productos/insertar', $dataC);
         echo view('templates/footer');
     }
 
@@ -25,12 +28,14 @@ class C_Producto extends Controller{
     public function Guardar(){
         $modelo = new M_Producto();
         $img = $this->request->getFile('file');
+        $codcat = $this->request->getVar('cat');
         $img->move('./public/Imagenes');
-        $data =[
+        $data = [
             'nombre' => $this->request->getVar('nom'),
             'marca' => $this->request->getVar('marca'),
             'img' => $img->getName(),
             'path_img' => base_url().'/public/Imagenes/'.$img->getName(),
+            'id_cat' => $codcat,
         ];
 
         $modelo->insert($data);
@@ -80,10 +85,10 @@ class C_Producto extends Controller{
         }
     }
 
-    public function Borrar($id, $img){
+    public function Borrar($i, $img){
         $modelo = new M_Producto();
-        $data['producto'] = $modelo->where('id', $id)->delete();
-        unlink(FCPATH.'./public/Imagenes/'.$img);
-        return redirect()->to(base_url('productos/listar'));
+        $data['producto'] = $modelo->where('id', $i)->delete();
+        /* unlink(FCPATH.'./public/Imagenes/'.$img); */
+         return redirect()->to(base_url('productos/listar')); 
     }
 }

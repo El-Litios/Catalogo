@@ -15,6 +15,8 @@
                                 <b>Nombre: </b> <?php echo $pr['nombre']?>
                                 <hr>
                                 <b>Marca: </b> <?php echo$pr['marca']?>
+                                <hr>
+                                <b>Categoria: </b> <?php echo $pr['descripcion']?>
                             </div>
                         </div>
                     </div>

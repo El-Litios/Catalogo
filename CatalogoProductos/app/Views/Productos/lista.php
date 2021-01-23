@@ -13,6 +13,7 @@
                 <th>Nombre</th>
                 <th>Marca</th>
                 <th>Archivo</th>
+                <th>Categoria</th>
                 <th>Gestion</th>
             </tr>
         </thead>
@@ -25,6 +26,7 @@
                     <td><?php echo $pr['nombre'] ?></td>
                     <td><?php echo $pr['marca'] ?></td>
                     <td><a href="<?php echo base_url('public/Imagenes/'.$pr['img'])?>"><?php echo $pr['img']?></a></td>
+                    <td><?php echo $pr['descripcion']?></td>
                     <td>
                         <a class="btn orange lighten-1 waves-effect" href="<?php echo base_url('/productos/edicion/'.$pr['id'])?>"><i class="material-icons">edit</i></a>
                         <a class="btn red lighten-1 waves-effect" href="<?php echo base_url('/productos/borrado/'.$pr['id'].'/'.$pr['img'])?>"><i class="material-icons">delete</i></a>
